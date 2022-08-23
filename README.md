@@ -3,8 +3,8 @@ From getting started to giving up
 
 Books for
 
-Python Crash Course
+  Python Crash Course
 
-A Hands-On, Project-Based Introduction to Programming
+  A Hands-On, Project-Based Introduction to Programming
 
-                                            -- Eric Matthes
+                                             -- Eric Matthes

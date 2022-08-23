@@ -37,3 +37,6 @@ for square in squares[:5]:
 squares_copy = squares[:]
 squares_copy.append("appendstring")
 print(squares_copy)
+
+# 元组 (生命周期内不可修改的数组)
+# 定义num(1, 1, 2) 定义长度由[]更为()

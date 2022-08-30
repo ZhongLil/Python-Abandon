@@ -1,5 +1,5 @@
 import sys
-import pygampip 
+import pygame
 
 def run_game():
     # 初始化屏幕对象

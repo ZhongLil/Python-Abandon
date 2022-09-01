@@ -1,9 +1,11 @@
+import imp
 import sys
 import pygame
 from settings import Settings
 from ship import Ship
 import game_fonctions as gf
 from pygame.sprite import Group
+from alien import Alien
 
 
 def run_game():
@@ -18,6 +20,7 @@ def run_game():
     # bg_color = (230, 230, 230)
     ship = Ship(ai_settings, screen)
     bullets = Group()
+    alien = Alien(ai_settings, screen)
 
     # 游戏主循环
     while True:
@@ -45,6 +48,6 @@ def run_game():
         # # 让最近绘制的屏幕可见
         # pygame.display.flip()
 
-        gf.update_screen(ai_settings, screen, ship, bullets)
+        gf.update_screen(ai_settings, screen, ship, alien, bullets)
 
 run_game()

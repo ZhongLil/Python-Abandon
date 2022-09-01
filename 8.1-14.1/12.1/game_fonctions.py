@@ -6,9 +6,10 @@ from bullet import Bullet
 def check_events(ai_settings, screen, ship, bullets):
     # 响应按键和鼠标事件
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-        elif event.type == pygame.KEYDOWN:
+
+        # if event.key == pygame.K_q:
+        #     sys.exit()
+        if event.type == pygame.KEYDOWN:
             check_keydown_events(event, ai_settings, screen, ship, bullets)
             # # 向右移
             # if event.key == pygame.K_RIGHT:
@@ -38,6 +39,9 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         #     new_bullet = Bullet(ai_settings, screen, ship)
         #     bullets.add(new_bullet)
         fire_bullet(ai_settings, screen, ship, bullets)
+    # 按键Q退出
+    elif event.key == pygame.K_q:
+        sys.exit()
 
 
 def check_keyup_events(event, ship):
@@ -46,22 +50,25 @@ def check_keyup_events(event, ship):
     elif event.key == pygame.K_LEFT:
         ship.moving_left = False
 
-def update_bullets(bullets) :
+
+def update_bullets(bullets):
 
     # 释放已出屏幕的子弹所占用的资源
     bullets.update()
     for bullet in bullets.copy():
         if bullet.rect.bottom < 0:
             bullets.remove(bullet)
-    print(len(bullets))
+    # print(len(bullets))
 
-def fire_bullet(ai_settings, screen, ship, bullets) :
+
+def fire_bullet(ai_settings, screen, ship, bullets):
     # 创建新元素加入到bullets中
     if len(bullets) < ai_settings.bullets_allowed:
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
 
-def update_screen(ai_settings, screen, ship, bullets):
+
+def update_screen(ai_settings, screen, ship, alien, bullets):
 
     # 每次循环输出一帧画面
     screen.fill(ai_settings.bg_color)
@@ -71,6 +78,7 @@ def update_screen(ai_settings, screen, ship, bullets):
         bullet.draw_bullet()
 
     ship.blitme()
+    alien.blitme()
 
     # 输出画面
     pygame.display.flip()

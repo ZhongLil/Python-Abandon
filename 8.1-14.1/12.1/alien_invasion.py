@@ -20,7 +20,11 @@ def run_game():
     # bg_color = (230, 230, 230)
     ship = Ship(ai_settings, screen)
     bullets = Group()
-    alien = Alien(ai_settings, screen)
+    # alien = Alien(ai_settings, screen)
+    aliens = Group()
+
+    # 创建敌人群
+    gf.create_fleet(ai_settings, screen, aliens)
 
     # 游戏主循环
     while True:
@@ -33,8 +37,6 @@ def run_game():
         ship.update()
         # bullets.update()
         gf.update_bullets(bullets)
-
- 
         # # 释放已出屏幕的子弹资源
         # for bullet in bullets.copy() :
         #     if bullet.rect.bottom < 0:
@@ -48,6 +50,7 @@ def run_game():
         # # 让最近绘制的屏幕可见
         # pygame.display.flip()
 
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
+
 
 run_game()

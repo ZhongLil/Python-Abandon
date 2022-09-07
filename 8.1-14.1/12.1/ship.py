@@ -38,3 +38,7 @@ class Ship():
 
         # 更新rect对象
         self.rect.centerx = self.center
+
+    def center_ship(self):
+        # 初始化位置
+        self.center = self.screen_rect.centerx

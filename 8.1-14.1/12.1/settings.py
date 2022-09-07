@@ -11,11 +11,18 @@ class Settings():
         self.bg_color = (230, 230, 230)
 
         # 飞船参数
-        self.ship_speed_factor = 1.5
+        self.ship_speed_factor = 1
+        self.ship_limit = 3
 
         # 射击参数
         self.bullet_speed_factor = 1
-        self.bullet_width = 3
+        self.bullet_width = 333
         self.bullet_height = 15
         self.bullet_color = 60, 60, 60
         self.bullets_allowed = 4
+
+        # 敌人参数
+        self.alien_speed_factor = 1
+        self.fleet_drop_speed = 11
+        # right = 1, left = -1
+        self.fleet_direction= 1

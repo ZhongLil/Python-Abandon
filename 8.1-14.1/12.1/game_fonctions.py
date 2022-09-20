@@ -5,7 +5,7 @@ from alien import Alien
 from time import sleep
 
 
-def check_events(ai_settings, screen, stats, play_button, ship, bullets):
+def check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets):
     # 响应按键和鼠标事件
     for event in pygame.event.get():
 
@@ -26,12 +26,23 @@ def check_events(ai_settings, screen, stats, play_button, ship, bullets):
             #     ship.moving_left = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
-            check_play_button(stats, play_button, mouse_x, mouse_y)
+            check_play_button(ai_settings, screen, stats, play_button, ship, aliens, bullets, mouse_x, mouse_y)
 
-def check_play_button(stats, play_button, mouse_x, mouse_y):
+def check_play_button(ai_settings, screen, stats, play_button, ship, aliens, bullets, mouse_x, mouse_y):
     # 在用户单机Play按钮时开始游戏
-    if play_button.rect.collidepoint(mouse_x, mouse_y):
-        stats.game_active = True
+    button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)
+    if button_clicked and not stats.game_active:
+        if play_button.rect.collidepoint(mouse_x, mouse_y):
+            stats.reset_stats()
+            stats.game_active = True
+
+        # 清空列表
+        aliens.empty()
+        bullets.empty()
+
+        # 创建新回合
+        create_fleet(ai_settings, screen, ship, aliens)
+        ship.center_ship()
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     if event.key == pygame.K_RIGHT:

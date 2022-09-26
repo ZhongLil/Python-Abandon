@@ -37,21 +37,8 @@ def run_game():
         gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
         if stats.game_active:
             ship.update()
-            # bullets.update()
             gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
-            # # 释放已出屏幕的子弹资源
-            # for bullet in bullets.copy() :
-            #     if bullet.rect.bottom < 0:
-            #         bullets.remove(bullet)
-            # print(len(bullets))
-
-            # # 修改背景颜色
-            # screen.fill(ai_settings.bg_color)
-            # ship.blitme()
-
-            # # 让最近绘制的屏幕可见
-            # pygame.display.flip()
 
         gf.update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button)
 

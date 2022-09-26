@@ -22,10 +22,8 @@ def run_game():
     # 创建开始按钮
     play_button = Button(ai_settings, screen, "Play")
 
-    # bg_color = (230, 230, 230)
     ship = Ship(ai_settings, screen)
     bullets = Group()
-    # alien = Alien(ai_settings, screen)
     aliens = Group()
     stats = GameStats(ai_settings)
 
@@ -36,11 +34,7 @@ def run_game():
     while True:
 
         # 监听键盘和鼠标事件
-        # for event in pygame.event.get():
-        #     if event.type == pygame.QUIT:
-        #         sys.exit()
         gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
-        # print(stats.game_active)
         if stats.game_active:
             ship.update()
             # bullets.update()

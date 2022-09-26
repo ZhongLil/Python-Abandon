@@ -12,7 +12,6 @@ class Bullet(Sprite):
                                 ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
-        # print(ship.rect.top)
 
         # 存储子弹位置
         self.y = float(self.rect.y)

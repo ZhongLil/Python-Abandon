@@ -14,16 +14,8 @@ def check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
         if event.type == pygame.KEYDOWN:
             check_keydown_events(event, ai_settings, screen, ship, bullets)
             # # 向右移
-            # if event.key == pygame.K_RIGHT:
-            #     ship.moving_right = True
-            # elif event.key == pygame.K_LEFT:
-            #     ship.moving_left = True
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
-            # if event.key == pygame.K_RIGHT:
-            #     ship.moving_right = False
-            # elif event.key == pygame.K_LEFT:
-            #     ship.moving_left = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             check_play_button(ai_settings, screen, stats, play_button, ship, aliens, bullets, mouse_x, mouse_y)
@@ -51,13 +43,6 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_left = True
     elif event.key == pygame.K_SPACE:
         # 创建一颗子弹, 加入到矩阵Bullets中
-        # print("check space")
-        # print(ai_settings.bullet_width)
-        # print(ai_settings.bullet_height)
-        # print(ai_settings.bullet_color)
-        # if len(bullets) < ai_settings.bullets_allowed:
-        #     new_bullet = Bullet(ai_settings, screen, ship)
-        #     bullets.add(new_bullet)
         fire_bullet(ai_settings, screen, ship, bullets)
     # 按键Q退出
     elif event.key == pygame.K_q:

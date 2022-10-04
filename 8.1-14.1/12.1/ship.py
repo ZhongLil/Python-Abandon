@@ -10,7 +10,8 @@ class Ship():
 
         # 加载飞船图像, 获取外接矩阵
         self.image = pygame.image.load(
-            "F:\project\python\Python-Abandon\8.1-14.1\\12.1\images\ship.bmp")
+            # "F:\project\python\Python-Abandon\8.1-14.1\\12.1\images\handgun.bmp")
+            ".\images\handgun.bmp")
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 

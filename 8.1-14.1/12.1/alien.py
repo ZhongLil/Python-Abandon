@@ -11,7 +11,7 @@ class Alien(Sprite):
 
         # 加载敌对单位图像, 设置其 rect属性
         self.image = pygame.image.load(
-            "F:\project\python\Python-Abandon\8.1-14.1\\12.1\images\\alien.bmp"
+            ".\images\\trouble.bmp"
         )
         self.rect = self.image.get_rect()
 
